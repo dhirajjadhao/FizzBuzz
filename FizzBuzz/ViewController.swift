@@ -23,7 +23,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        runFizzBuzzFor(range: range)
+        
+        // run less efficiently
+        runFizzBuzzLessEfficientlyFor(range: range)
+        
+        
+        // Uncomment below lines to run efficiently
+        //runFizzBuzzFor(range: range)
+        
         
     }
     
@@ -58,6 +65,31 @@ class ViewController: UIViewController {
                 print("Buzz")
             }
 
+        }
+        
+    }
+    
+    
+    
+    /// Function to run FizzBuzz Logic on given int range in less efficient way
+    func runFizzBuzzLessEfficientlyFor(range: CountableClosedRange<Int>) -> Void {
+        
+        let array = Array(range.lowerBound...range.upperBound)
+        
+        for i in 0..<array.count{
+           
+            let element = array[i]
+            
+            if (element%3 != 0) && (element%5 != 0){
+                print(element)
+            }else if (element%3 == 0) && (element%5 == 0) {
+                print("FizzBuzz")
+            }else if (element%3 == 0) && (element%5 != 0) {
+                print("Fizz")
+            }else if (element%3 != 0) && (element%5 == 0) {
+                print("Buzz")
+            }
+            
         }
         
     }
